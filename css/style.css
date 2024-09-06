@@ -1,0 +1,243 @@
+/* Estilo geral */
+html, body {
+    height: 100%; /* Define a altura para 100% da janela de visualização */
+    width: 100%; /* Define a largura para 100% da janela de visualização */
+    margin: 0; /* Remove as margens padrão */
+    display: flex; /* Utiliza flexbox para layout */
+    align-items: center; /* Alinha verticalmente ao centro */
+    justify-content: center; /* Alinha horizontalmente ao centro */
+    flex-direction: column; /* Organiza os itens em coluna */
+    font-family: 'Cinzel', serif; /* Define a fonte utilizada */
+    background-color: #1b2631; /* Cor de fundo */
+    color: #ECF0F1; /* Cor do texto */
+    text-align: center; /* Alinha o texto ao centro */
+    background-image: url('../img/bg-board.png'); /* Imagem de fundo */
+    background-size: cover; /* Ajusta a imagem para cobrir toda a área do fundo */
+    background-position: center; /* Centraliza a imagem no fundo */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    background-attachment: fixed; /* Fixa a imagem no fundo da página durante o rolar */
+}
+
+body::before {
+    content: ""; /* Cria um pseudo-elemento vazio */
+    position: absolute; /* Posiciona o pseudo-elemento absolutamente */
+    top: 0; /* Posiciona no topo da página */
+    left: 0; /* Posiciona à esquerda da página */
+    width: 100%; /* Define a largura para 100% */
+    height: 100%; /* Define a altura para 100% */
+    background: rgba(0, 0, 0, 0.75); /* Cor do overlay com 75% de opacidade */
+    z-index: 1; /* Garante que o overlay esteja acima do fundo */
+}
+
+header {
+    padding: 15px; /* Espaçamento interno ao redor do conteúdo do cabeçalho */
+    z-index: 2; /* Garante que o cabeçalho esteja acima do overlay */
+}
+
+#game-container {
+    width: 75%; /* Define a largura do container do jogo */
+    margin: 0 auto; /* Centraliza o container horizontalmente */
+    padding: 20px; /* Espaçamento interno ao redor do conteúdo do container */
+    display: flex; /* Utiliza flexbox para layout */
+    flex-direction: column; /* Organiza os itens em coluna */
+    z-index: 2; /* Garante que o container esteja acima do overlay */
+}
+
+#game-container #game-modes {
+    flex-direction: column; /* Organiza os botões em coluna */
+    align-items: center; /* Alinha os botões ao centro */
+}
+
+h1 {
+    font-size: 2.2em; /* Define o tamanho da fonte do título principal */
+    margin: 5px 0; /* Espaçamento acima e abaixo do título */
+}
+
+h2 {
+    font-size: 1.3em; /* Define o tamanho da fonte dos subtítulos */
+    margin: 12px 0 0 0; /* Espaçamento acima do subtítulo */
+}
+
+h2 #game-over-message {
+    font-size: 1.3em; /* Tamanho da fonte para a mensagem de game over */
+    margin: 15px 0; /* Espaçamento acima e abaixo da mensagem */
+}
+
+h3 {
+    font-weight: normal; /* Define o peso da fonte como normal */
+    font-size: 1em; /* Define o tamanho da fonte para o subtítulo secundário */
+    margin: 0 0 10px 0; /* Espaçamento abaixo do subtítulo */
+}
+
+p {
+    font-size: 1em; /* Define o tamanho da fonte para os parágrafos */
+    margin: 5px 0; /* Espaçamento acima e abaixo dos parágrafos */
+}
+
+#status p {
+    font-size: 1.2em; /* Tamanho da fonte para os parágrafos na seção de status */
+}
+
+button {
+    font-family: 'Cinzel', serif; /* Define a fonte dos botões */
+}
+
+#game-modes button {
+    padding: 15px 20px; /* Espaçamento interno ao redor do texto do botão */
+    font-size: 1.2em; /* Tamanho da fonte dos botões */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+    background-color: #0c7f77; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 12px; /* Arredonda os cantos do botão */
+    width: 260px; /* Largura fixa para o botão */
+    box-shadow: 0 3px #ffffff7a; /* Sombra do botão */
+}
+
+#game-modes button:hover {
+    background-color: #08514c; /* Cor de fundo do botão ao passar o mouse */
+    box-shadow: 0 3px #ffffff54; /* Sombra do botão ao passar o mouse */
+}
+
+.tooltip-01, .tooltip-02 {
+    display: none; /* Oculta as tooltips por padrão */
+    position: absolute; /* Posiciona as tooltips absolutamente */
+    background-color: #33333382; /* Cor de fundo das tooltips com 50% de opacidade */
+    color: #fff; /* Cor do texto nas tooltips */
+    padding: 8px; /* Espaçamento interno ao redor do texto */
+    border-radius: 5px; /* Arredonda os cantos das tooltips */
+    white-space: nowrap; /* Impede a quebra de linha do texto */
+    z-index: 10; /* Garante que as tooltips estejam acima do conteúdo */
+    font-size: 14px; /* Tamanho da fonte das tooltips */
+    transition: opacity 0.3s; /* Transição suave para a opacidade das tooltips */
+    width: 75%; /* Largura das tooltips */
+}
+
+#time-mode:hover + .tooltip-01 {
+    display: block; /* Exibe a tooltip ao passar o mouse sobre o botão */
+    opacity: 1; /* Define a opacidade para totalmente visível */
+}
+
+#move-mode:hover + .tooltip-02 {
+    display: block; /* Exibe a tooltip ao passar o mouse sobre o botão */
+    opacity: 1; /* Define a opacidade para totalmente visível */
+}
+
+#time-mode, #move-mode {
+    position: relative; /* Posiciona os botões relativamente */
+    padding: 10px 20px; /* Espaçamento interno ao redor do texto do botão */
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+    font-size: 16px; /* Tamanho da fonte do botão */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo do botão */
+    margin: 10px; /* Espaçamento ao redor do botão */
+}
+
+#time-mode:hover, #move-mode:hover {
+    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+}
+
+#status {
+    display: flex; /* Utiliza flexbox para layout */
+    justify-content: space-around; /* Distribui o conteúdo igualmente com espaço ao redor */
+    margin: 20px 0; /* Espaçamento acima e abaixo da seção de status */
+    background-color: #ffffff17; /* Cor de fundo com 10% de opacidade */
+    border-radius: 5px; /* Arredonda os cantos da seção de status */
+}
+
+#game-board {
+    display: flex; /* Utiliza flexbox para layout */
+    flex-direction: row; /* Organiza as cartas em linha */
+    justify-content: center; /* Alinha as cartas ao centro horizontalmente */
+    flex-wrap: wrap; /* Permite que as cartas se movam para a linha seguinte se necessário */
+    gap: 10px; /* Espaçamento entre as cartas */
+}
+
+.card {
+    width: 280px; /* Largura das cartas */
+    height: 160px; /* Altura das cartas */
+    perspective: 1000px; /* Define a perspectiva 3D para a rotação das cartas */
+    cursor: pointer; /* Altera o cursor para indicar que a carta é clicável */
+}
+
+.card-inner {
+    width: 100%; /* Largura do conteúdo da carta */
+    height: 100%; /* Altura do conteúdo da carta */
+    position: relative; /* Posiciona o conteúdo da carta relativamente */
+    transform-style: preserve-3d; /* Mantém o estilo 3D ao girar */
+    transition: transform 0.6s ease-in-out; /* Transição suave para a rotação das cartas */
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg); /* Rotaciona a carta quando está virada */
+}
+
+.card-front, .card-back {
+    position: absolute; /* Posiciona as faces da carta absolutamente */
+    width: 100%; /* Largura das faces da carta */
+    height: 100%; /* Altura das faces da carta */
+    backface-visibility: hidden; /* Oculta a face oposta ao girar */
+    display: flex; /* Utiliza flexbox para centralizar o conteúdo */
+    align-items: center; /* Alinha o conteúdo verticalmente ao centro */
+    justify-content: center; /* Alinha o conteúdo horizontalmente ao centro */
+    font-size: 24px; /* Tamanho da fonte nas faces da carta */
+    color: white; /* Cor do texto nas faces da carta */
+}
+
+.card-front {
+    background-color: #333; /* Cor de fundo da face da carta quando virada para frente */
+}
+
+.card-front {
+    background-image: url('../img/bg-cards.png'); /* Imagem de fundo da face da carta */
+    background-size: cover; /* Ajusta a imagem para cobrir toda a área da face */
+    background-position: center; /* Centraliza a imagem na face */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
+    background-color: #333; /* Cor de fundo caso a imagem não carregue */
+    display: flex; /* Utiliza flexbox para centralizar o conteúdo */
+    align-items: center; /* Alinha o conteúdo verticalmente ao centro */
+    justify-content: center; /* Alinha o conteúdo horizontalmente ao centro */
+    font-size: 24px; /* Tamanho da fonte na face da carta */
+    color: white; /* Cor do texto na face da carta */
+    border-radius: 8px; /* Arredonda os cantos da face da carta */
+}
+
+.card-back {
+    background-color: #4CAF50; /* Cor de fundo da face da carta quando virada para trás */
+    transform: rotateY(180deg); /* Rotaciona a face da carta para trás */
+    border-radius: 8px; /* Arredonda os cantos da face da carta */
+}
+
+.card-image {
+    width: 100%; /* Largura da imagem dentro da carta */
+    height: 100%; /* Altura da imagem dentro da carta */
+    object-fit: cover; /* Ajusta a imagem para preencher o espaço da carta */
+    border-radius: 8px; /* Arredonda os cantos da imagem */
+}
+
+#game-over, #status {
+    display: none; /* Oculta as seções de game over e status por padrão */
+}
+
+#game-over-message .win {
+    color: #2ECC71; /* Cor do texto para vitória */
+    font-size: 2em; /* Tamanho da fonte para a mensagem de vitória */
+}
+
+#game-over-message .loose {
+    color: #E74C3C; /* Cor do texto para derrota */
+    font-size: 2em; /* Tamanho da fonte para a mensagem de derrota */
+}
+
+button#restart-button {
+    padding: 10px 20px; /* Espaçamento interno ao redor do texto do botão */
+    font-size: 1.2em; /* Tamanho da fonte do botão */
+    background-color: #E74C3C; /* Cor de fundo do botão de reinício */
+    color: white; /* Cor do texto do botão de reinício */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 5px; /* Arredonda os cantos do botão de reinício */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+}

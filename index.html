@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para dispositivos móveis -->
+    <title>Memória dos Extintos</title> <!-- Título da página exibido na aba do navegador -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"> <!-- Importa a fonte 'Cinzel' do Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Importa ícones do Font Awesome -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Importa o arquivo de estilos CSS personalizado -->
+</head>
+<body>
+    <header>      
+        <h1>Memória dos Extintos</h1> <!-- Título principal da página -->
+        <h3>Espécies que não existem mais no Rio Grande do Sul</h3> <!-- Subtítulo com uma breve descrição do jogo -->
+    </header>
+    <main id="game-container">
+        <section id="game-modes">
+            <h2>Escolha seu Desafio:</h2> <!-- Cabeçalho para a seleção do modo de jogo -->
+            <button id="time-mode"><i class="fas fa-stopwatch"></i> Contra o Tempo</button> <!-- Botão para o modo Contra o Tempo -->
+            <p class="tooltip-01"><b>Contra o Tempo:</b> Combine todas as cartas antes que o tempo acabe!</p> <!-- Tooltip explicando o modo Contra o Tempo -->
+            <button id="move-mode"><i class="fas fa-lock"></i> Limite de Jogadas</button> <!-- Botão para o modo Limite de Jogadas -->
+            <p class="tooltip-02"><b>Limite de Jogadas:</b> Encontre todos os pares dentro do limite de jogadas!</p> <!-- Tooltip explicando o modo Limite de Jogadas -->
+        </section>          
+        
+        <section id="status">
+            <p id="level-display">Nível:&nbsp;1</p> <!-- Exibe o nível atual do jogo -->
+            <p id="timer"><i class="fas fa-stopwatch"></i>&nbsp;Tempo:&nbsp;<span id="time-left">60</span>s</p> <!-- Exibe o tempo restante no jogo -->
+            <p id="moves-display"><i class="fas fa-arrows-alt"></i>&nbsp;Jogadas Restantes:&nbsp;<span id="moves-left">12</span></p> <!-- Exibe o número de jogadas restantes -->
+        </section>
+
+        <div id="game-board"></div> <!-- Área onde o tabuleiro do jogo será exibido -->
+        
+        <section id="game-over" style="display:none;">
+            <h2 id="game-over-message"></h2> <!-- Mensagem exibida quando o jogo termina -->
+            <button id="restart-button">Reiniciar Jogo</button> <!-- Botão para reiniciar o jogo -->
+        </section>
+    </main>
+
+    <script src="js/game.js"></script> <!-- Importa o script JavaScript que controla a lógica do jogo -->
+    
+</body>
+</html>
